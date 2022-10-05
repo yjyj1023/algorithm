@@ -31,128 +31,22 @@
 # 2. 알고리즘
 ## 1. 화폐 매수 구하는 프로그램 구현하기
 ![](https://velog.velcdn.com/images/lyj1023/post/b7d6d676-b67f-446c-8e9f-2a41e32aa366/image.png)
-```java
-package src;
 
-import java.util.Scanner;
-
-public class CurrencyCnt {
-    public static void main(String[] args) {
-        //현금으로 돈을 받고 25000원을 거슬러 주어야 합니다.
-        //5만원 몇장 만원 몇장 5천원 몇장?
-        //Scanner sc = new Scanner(System.in);
-
-        //int currency = sc.nextInt();
-
-        int currency = 25000;
-
-        int currency50000 = 50000;
-        int currency10000 = 10000;
-        int currency5000 = 5000;
-        int currency1000 = 1000;
-        int currency500 = 500;
-        int currency100 = 100;
-        int currency50 = 50;
-        int currency10 = 10;
-
-        System.out.printf("50000원 %d장, 나머지: %d원 %n", currency/currency50000, currency%currency50000);
-        currency = currency%currency50000;
-
-        System.out.printf("10000원 %d장, 나머지: %d원 %n", currency/currency10000, currency%currency10000);
-        currency = currency%currency10000;
-
-        System.out.printf("5000원 %d장, 나머지: %d원 %n", currency/currency5000, currency%currency5000);
-        currency = currency%currency5000;
-
-        System.out.printf("1000원 %d장, 나머지: %d원 %n", currency/currency1000, currency%currency1000);
-        currency = currency%currency1000;
-
-        System.out.printf("500원 %d개, 나머지: %d원 %n", currency/currency500, currency%currency500);
-        currency = currency%currency500;
-
-        System.out.printf("100원 %d개, 나머지: %d원 %n", currency/currency100, currency%currency100);
-        currency = currency%currency100;
-
-        System.out.printf("50원 %d개, 나머지: %d원 %n", currency/currency50, currency%currency50);
-        currency = currency%currency50;
-
-        System.out.printf("10원 %d개, 나머지: %d원 %n", currency/currency10, currency%currency10);
-        currency = currency%currency10;
-
-        System.out.printf("나머지: " + currency);
-    }
-}
-
-```
 
 ## 2. 코드업 문제
 ### 1156번 홀수 짝수 구별
-```java
-package src;
 
-import java.util.Scanner;
-
-public class EvenOdd {
-
-    public static void main(String[] args) {
-        /*
-        용준이와 봉찬이는 공기 놀이로 내기를 하였다.
-        만약 홀수개의 돌을 쥐게 되면 용준이가 이기게 되고, 짝수개의 돌을 쥐게 되면 봉찬이가 이기는 것으로 룰을 정하였다.
-        어떤 자연수가 입력되면  홀수이면 "odd"을 출력하고, 짝수이면 "even"을 출력하시오.
-        */
-
-        Scanner sc = new Scanner(System.in);
-
-        int num = sc.nextInt();
-
-        if(num%2 == 0){
-            System.out.println("even");
-        }
-        else{
-            System.out.println("odd");
-        }
-
-    }
-}
-
-```
+용준이와 봉찬이는 공기 놀이로 내기를 하였다.
+만약 홀수개의 돌을 쥐게 되면 용준이가 이기게 되고, 짝수개의 돌을 쥐게 되면 봉찬이가 이기는 것으로 룰을 정하였다.
+어떤 자연수가 입력되면  홀수이면 "odd"을 출력하고, 짝수이면 "even"을 출력하시오.
 
 ### 1161번 홀수와 짝수 그리고 더하기
-```java
-package src;
 
-import java.util.Scanner;
+정수 두개가 입력으로 들어온다.
+만약 첫번째 정수가 홀수이면 "홀수"를 출력하고, 짝수이면 "짝수"를 출력한 후  "+"를 출력한다.
+그리고 두번째 정수가 홀수이면 "홀수"를 출력하고, 짝수이면 "짝수"를 출력한 후  "="을 출력하고 결과로 나오는 값이 홀수인지 짝수인지 출력한다.
 
-public class EvenOdd2 {
-    public static String getEvenOdd(int num){
-        if(num%2 == 0){
-            return "짝수";
-        }
-        else{
-            return "홀수";
-        }
-    }
+예를들어,
+5 7 이 입력되면 "홀수+홀수=짝수"가 출력된다.
+5 6 이 입력되면 "홀수+짝수=홀수"가 출력된다.
 
-    public static void main(String[] args) {
-        /*
-        정수 두개가 입력으로 들어온다.
-        만약 첫번째 정수가 홀수이면 "홀수"를 출력하고, 짝수이면 "짝수"를 출력한 후  "+"를 출력한다.
-        그리고 두번째 정수가 홀수이면 "홀수"를 출력하고, 짝수이면 "짝수"를 출력한 후  "="을 출력하고 결과로 나오는 값이 홀수인지 짝수인지 출력한다.
-
-        예를들어,
-        5 7 이 입력되면 "홀수+홀수=짝수"가 출력된다.
-        5 6 이 입력되면 "홀수+짝수=홀수"가 출력된다.
-         */
-
-        Scanner sc = new Scanner(System.in);
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
-
-        String result1 = getEvenOdd(num1);
-        String result2 = getEvenOdd(num2);
-        String result3 = getEvenOdd(num1+num2);
-        System.out.println(result1+"+"+result2+"="+result3);
-    }
-}
-
-```
