@@ -1,11 +1,19 @@
 public class InsertionSort {
     public int[] sort(int[] arr){
-        int i = 1;
+        int target;
+        int target_idx;
 
-        if(arr[i]<arr[i-1]){
-            Swap(arr, i, i-1);
+        for(int i = 1; i<arr.length; i++){
+            target = arr[i];
+            target_idx = i;
+            for(int j = target_idx-1; j>=0; j--){
+                if(target<arr[j]){
+                    Swap(arr, target_idx, j);
+                    target_idx = j;
+                }
+            }
         }
-        return new int[]{};
+        return arr;
     }
 
     public void Swap(int[]arr, int index1, int index2){
