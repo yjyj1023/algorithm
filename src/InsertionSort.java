@@ -1,15 +1,13 @@
 public class InsertionSort {
     public int[] sort(int[] arr){
-        int target;
-        int target_idx;
+
 
         for(int i = 1; i<arr.length; i++){
-            target = arr[i];
-            target_idx = i;
-            for(int j = target_idx-1; j>=0; j--){
-                if(target<arr[j]){
-                    Swap(arr, target_idx, j);
-                    target_idx = j;
+
+            for(int j = i-1; j>=0; j--){
+                if(arr[i]<arr[j]){
+                    Swap(arr, i, j);
+                    i = j;
                 }
             }
         }
@@ -28,7 +26,7 @@ public class InsertionSort {
         InsertionSort is = new InsertionSort();
         int[] result = is.sort(arr);
 
-        for(int a: arr){
+        for(int a: result){
             System.out.print(a+" ");
         }
 
