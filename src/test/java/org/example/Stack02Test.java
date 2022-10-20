@@ -12,9 +12,11 @@ class Stack02Test {
 
     @BeforeEach
     void setUp() {
+        System.out.println("before each 실행");
     }
 
     @Test
+    @DisplayName("push가 잘 되는지?")
     void push() {
         Stack02 st = new Stack02();
         st.push(10);
