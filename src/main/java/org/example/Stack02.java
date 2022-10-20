@@ -25,7 +25,7 @@ public class Stack02 {
 
     public int pop() {
         if(this.isEmpty()){
-            throw new RuntimeException("스택이 비었습니다.");
+            throw new EmptyStackException();
         }
         this.top --;
         int value = this.arr[this.top];
@@ -35,5 +35,12 @@ public class Stack02 {
     public boolean isEmpty() {
         boolean isEmpty = this.top == 0;
         return isEmpty;
+    }
+
+    public int peek() {
+        if(this.isEmpty()){
+            throw new EmptyStackException();
+        }
+        return this.arr[this.top -1];
     }
 }

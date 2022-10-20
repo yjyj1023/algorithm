@@ -45,7 +45,7 @@ class Stack02Test {
 
         //스택이 비어있을때
         //예외 검증
-        assertThrows(RuntimeException.class, ()->{
+        assertThrows(EmptyStackException.class, ()->{
             stack02.pop();
         });
 
@@ -60,6 +60,17 @@ class Stack02Test {
         assertFalse(stack02.isEmpty());
         stack02.pop();
         assertTrue(stack02.isEmpty());
+    }
+
+    @Test
+    void peek() {
+        Stack02 stack02 = new Stack02();
+        assertThrows(EmptyStackException.class, ()->{
+            stack02.peek();
+        });
+        stack02.push(10);
+        int peeked = stack02.peek();
+        assertEquals(10, peeked);
     }
 
     @Test
