@@ -10,9 +10,6 @@ public class HashFunction {
         return asciiSum % 90;
     }
 
-
-
-
     public static void main(String[] args) {
         HashFunction hf = new HashFunction();
         hf.hash("kyeongrok");
