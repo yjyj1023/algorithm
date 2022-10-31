@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class 모의고사 {
     public int[] solution(int[] answers) {
         int[] answer = {};
@@ -29,8 +34,30 @@ public class 모의고사 {
                 cnt[2] += 1;
             }
         }
+        //정렬되지 않은 값 저장
+        int[] cntCopy = new int[cnt.length];
+        for (int i = 0; i < cnt.length; i++) {
+            cntCopy[i] = cnt[i];
+        }
 
-        answer = cnt;
+        //cnt 정렬하고 최대값 찾기
+        Arrays.sort(cnt);
+        int max = cnt[cnt.length - 1];
+
+        List<Integer> a = new ArrayList<>();
+
+        for(int i = 0; i<cnt.length; i++){
+            if(cntCopy[i] == max){
+                a.add(i+1);
+            }
+        }
+
+        //answer 선언하기
+        answer = new int[a.size()];
+        for (int i = 0; i<a.size(); i++){
+            answer[i] = a.get(i);
+        }
+
         return answer;
     }
 
