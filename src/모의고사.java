@@ -1,32 +1,36 @@
 public class 모의고사 {
     public int[] solution(int[] answers) {
         int[] answer = {};
-        int[] p1 = {1, 2, 3, 4, 5};
-        int[] p2 = {2, 1, 2, 3, 2, 4, 2, 5};
-        int[] p3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
-        int p1Cnt = 0;
-        int p2Cnt = 0;
-        int p3Cnt = 0;
+        //문자열로 선언
+        String p1 = "12345";
+        String p2 = "21232425";
+        String p3 = "3311224455";
 
+        //답만큼 학생 답 반복하기
+        p1 = p1.repeat(answer.length/p1.length()+1);
+        p2 = p2.repeat(answer.length/p2.length()+1);
+        p3 = p3.repeat(answer.length/p3.length()+1);
+
+        //몇개 맞추는지 cnt하는 배열
+        int[] cnt = {0,0,0};
+
+        //채점하기
         for(int i = 0; i<answers.length; i++){
-            if(answers[i] == p1[i]){
-                p1Cnt += 1;
+            if(answers[i] == Character.getNumericValue(p1.charAt(i))){ //Character.getNumericValue: 문자열을 정수로 변환
+                cnt[0] += 1;
+            }
+
+            if(answers[i] == Character.getNumericValue(p2.charAt(i))){
+                cnt[1] += 1;
+            }
+
+            if(answers[i] == Character.getNumericValue(p3.charAt(i))){
+                cnt[2] += 1;
             }
         }
-        for(int i = 0; i<answers.length; i++){
-            if(answers[i] == p2[i]){
-                p2Cnt += 1;
-            }
-        }
-        for(int i = 0; i<answers.length; i++){
-            if(answers[i] == p3[i]){
-                p3Cnt += 1;
-            }
-        }
 
-
-
+        answer = cnt;
         return answer;
     }
 
@@ -43,6 +47,7 @@ public class 모의고사 {
             System.out.printf(i+" ");
         }
 
+        System.out.println();
         for(int i : result2){
             System.out.printf(i+" ");
         }
