@@ -22,7 +22,7 @@ public class 모의고사 {
 
         //채점하기
         for(int i = 0; i<answers.length; i++){
-            if(answers[i] == Character.getNumericValue(p1.charAt(i))){ //Character.getNumericValue: 문자열을 정수로 변환
+            if(answers[i] == Character.getNumericValue(p1.charAt(i))){ //Character.getNumericValue: char을 정수로 변환
                 cnt[0] += 1;
             }
 
@@ -34,28 +34,22 @@ public class 모의고사 {
                 cnt[2] += 1;
             }
         }
-        //정렬되지 않은 값 저장
-        int[] cntCopy = new int[cnt.length];
-        for (int i = 0; i < cnt.length; i++) {
-            cntCopy[i] = cnt[i];
-        }
 
-        //cnt 정렬하고 최대값 찾기
-        Arrays.sort(cnt);
-        int max = cnt[cnt.length - 1];
+        //max값을 찾는다.
+        int maxScore = Math.max(cnt[0], Math.max(cnt[1], cnt[2]));
 
-        List<Integer> a = new ArrayList<>();
+        List<Integer> studentWithTheMaxScore  = new ArrayList<>();
 
         for(int i = 0; i<cnt.length; i++){
-            if(cntCopy[i] == max){
-                a.add(i+1);
+            if(cnt[i] == maxScore){
+                studentWithTheMaxScore .add(i+1);
             }
         }
 
         //answer 선언하기
-        answer = new int[a.size()];
-        for (int i = 0; i<a.size(); i++){
-            answer[i] = a.get(i);
+        answer = new int[studentWithTheMaxScore.size()];
+        for (int i = 0; i<studentWithTheMaxScore.size(); i++){
+            answer[i] = studentWithTheMaxScore.get(i);
         }
 
         return answer;
