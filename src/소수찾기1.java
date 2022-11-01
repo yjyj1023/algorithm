@@ -9,9 +9,12 @@ public class 소수찾기1 {
     boolean isPrime(int num) {
         boolean answer = true;
 
-        for (int i = 1; i <= num; i++) {
-
+        for (int i = 2; i < num; i++) {
+            if(num%i == 0){
+                answer = false;
+            }
         }
+
         return answer;
     }
 
