@@ -1,12 +1,12 @@
-public class TemplateCallbackPrime {
-    boolean someOperator(int a, int b){
-        return a < b;
-    }
+interface StatementStrategy{
+    boolean compare(int a, int b);
+}
 
-    boolean isPrime(int num) {
+public class TemplateCallbackPrime {
+    boolean isPrime(int num, StatementStrategy stmt) {
         boolean answer = true;
 
-        for (int i = 2; someOperator(i,num); i++) {
+        for (int i = 2; stmt.compare(i,num); i++) {
             if(num%i == 0){
                 answer = false;
             }
