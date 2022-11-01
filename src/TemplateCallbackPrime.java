@@ -16,13 +16,12 @@ public class TemplateCallbackPrime {
 
     public static void main(String[] args) {
         TemplateCallbackPrime tc = new TemplateCallbackPrime();
-        boolean r = tc.isPrime(17, new StatementStrategy() {
-            @Override
-            public boolean compare(int a, int b) {
-                return a <= Math.sqrt(b);
-            }
-        });
+        boolean r = tc.isPrime(13, (a,b) -> a<b);
+        boolean r2 = tc.isPrime(17, (a,b) -> a < b/2);
+        boolean r3 = tc.isPrime(19, (a,b) -> a < Math.sqrt(b));
 
         System.out.println(r);
+        System.out.println(r2);
+        System.out.println(r3);
     }
 }
