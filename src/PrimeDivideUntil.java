@@ -1,8 +1,8 @@
 public class PrimeDivideUntil {
 
     //실습: 13, 17, 19, 23 이 소수인지 판별하는 알고리즘을 만들어 보고 소수인지 구해 보세요.
-    //n이 들어왔을때 n-1까지 나누고 나머지가 0이 아니면 소수이다.
 
+    //n이 들어왔을때 n-1까지 나누고 나머지가 0이 아니면 소수이다.
     boolean isPrime(int num) {
         boolean answer = true;
 
@@ -30,7 +30,7 @@ public class PrimeDivideUntil {
     boolean isPrime3(int num) {
         boolean answer = true;
 
-        for (int i = 2; i < Math.sqrt(num); i++) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
             if(num%i == 0){
                 answer = false;
             }
