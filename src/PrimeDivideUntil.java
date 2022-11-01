@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
-public class 소수찾기1 {
+public class PrimeDivideUntil {
 
     //실습: 13, 17, 19, 23 이 소수인지 판별하는 알고리즘을 만들어 보고 소수인지 구해 보세요.
     //n이 들어왔을때 n-1까지 나누고 나머지가 0이 아니면 소수이다.
@@ -19,7 +16,7 @@ public class 소수찾기1 {
     }
 
     public static void main(String[] args) {
-        소수찾기1 a = new 소수찾기1();
+        PrimeDivideUntil a = new PrimeDivideUntil();
 
         boolean result = a.isPrime(13);
         System.out.println(result);
