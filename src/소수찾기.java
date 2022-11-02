@@ -6,16 +6,15 @@ public class 소수찾기 {
         int answer = 0;
 
         List<Integer> num = new ArrayList<>();
-        for(int i = 2; i<= n; i++){
-            if(i%2!=0 | i==2){
-                num.add(i);
-            }
+        // 2 ~ 50채우기
+        for (int i = 2; i <= n; i++) num.add(i);
 
-        }
-        for(int i: num) {
-            System.out.printf(i+" ");
+        // 2의 배수 지우기 2제외
+        for (int i = 0; i < num.size(); i++) {
+            if (num.get(i) % 2 == 0 && num.get(i) > 2) num.remove(i);
         }
 
+        System.out.println(num);
         System.out.println(num.size());
     }
 
