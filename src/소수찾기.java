@@ -27,17 +27,18 @@ public class 소수찾기 {
         List<Integer> num = new ArrayList<>();
         List<Boolean> checks = new ArrayList<>();
 
-        // 2 ~ 50채우기
+        // 초기화
         for (int i = 2; i <= n; i++) num.add(i);
         for (int i = 2; i <= n; i++) checks.add(true);
 
+
         for (int i = 2; i <= (int)Math.sqrt(n); i++) {
-            for (int j = 0; j < num.size(); j++) {
-                if (num.get(j) % i == 0 && num.get(j) > i) checks.set(j, false);
+            for (int j = 2+(i-2)*i; j < num.size(); j+=i) {
+                checks.set(j, false);
             }
         }
-        int cnt = 0;
 
+        int cnt = 0;
         for (boolean i: checks) {
             if(i==true){
                 cnt++;
