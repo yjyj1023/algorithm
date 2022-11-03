@@ -29,11 +29,11 @@ public class 소수찾기 {
         // 초기화
         checks[0] = false;
         checks[1] = false;
-
         for (int i = 2; i < n+1; i++) checks[i] = true;
 
+        //루트n만큼 반복한다.
         for (int i = 2; i <= (int)Math.sqrt(n); i++) {
-            for (int j = 2*i; j < n+1; j+=i) {
+            for (int j = 2*i; j < n+1; j+=i) { //초기값: 2*i, 공차: i
                 checks[j] = false;
             }
         }
@@ -48,7 +48,6 @@ public class 소수찾기 {
 
     public static void main(String[] args) {
         소수찾기 a = new 소수찾기();
-
 
         int result1 = a.solution2(50);
         System.out.println(result1);
