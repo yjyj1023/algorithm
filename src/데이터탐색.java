@@ -1,7 +1,8 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class 데이터탐색 {
-    public int solution(){
+    public int solution(){ //단순탐색 이용
         int answer = 0;
         Scanner sc = new Scanner(System.in);
 
