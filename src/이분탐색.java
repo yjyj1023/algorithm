@@ -17,27 +17,24 @@ public class 이분탐색 {
             arr[i] = sc.nextInt();
         }
 
+        //중간, 시작, 끝 인덱스
         int mid = n/2;
         int start = 0;
         int end = n;
 
-        while(arr[mid] != s){
-            if(arr[mid] > s){
-                end = mid-1;
-                mid = end/2;
-            }else{
+        while(start <= end){
+            mid = (start+end)/2;
+
+            if(arr[mid] == s){
+                return mid+1;
+            }else if(arr[mid] < s){
                 start = mid+1;
-                mid = (start+end)/2;
+            }else{
+                end = mid-1;
             }
         }
 
-        if(arr[mid] == s){
-            answer = mid+1;
-        }else{
-            answer = -1;
-        }
-
-        return answer;
+        return -1;
     }
     public static void main(String[] args) {
         이분탐색 a = new 이분탐색();
