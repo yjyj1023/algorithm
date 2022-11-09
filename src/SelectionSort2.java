@@ -1,4 +1,8 @@
-public class SelectionSort {
+interface StatementStrategy{
+    boolean apply(int a, int b);
+}
+
+public class SelectionSort2 {
     public int[] Swap(int[] arr, int idx1, int idx2){
         int temp;
 
@@ -9,7 +13,7 @@ public class SelectionSort {
         return arr;
     }
 
-    public int[] Ascending(int[]arr, StatementStrategy stmt){  //오름차순 정렬
+    public int[] selectionSort(int[]arr, StatementStrategy stmt){
         for (int i = 0; i < arr.length; i++) {
             int min = arr[i];
             int minIdx = i;
@@ -23,35 +27,22 @@ public class SelectionSort {
         }
         return arr;
     }
-    public int[] Descending(int[]arr){  //내림차순 정렬
-        for (int i = 0; i < arr.length; i++) {
-            int max = arr[i];
-            int maxIdx = i;
-            for (int j = i; j < arr.length; j++) {
-                if(arr[j]>max){
-                    max = arr[j];
-                    maxIdx = j;
-                }
-            }
-            Swap(arr,i,maxIdx);
-        }
-        return arr;
-    }
+
 
 
     public static void main(String[] args) {
         int[] arr = {2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
 
-        SelectionSort s = new SelectionSort();
-        int[] result = s.Ascending(arr, (a,b) -> a<b);
+        SelectionSort2 s = new SelectionSort2();
+        int[] result = s.selectionSort(arr, (a,b) -> a<b); //오름차순 정렬
         for(int i: result){
             System.out.print(i+" ");
         }
 
         System.out.println();
 
-        int[] result2 = s.Descending(arr);
-        for(int i: result){
+        int[] result2 = s.selectionSort(arr, (a,b) -> a>b); //내림차순 정렬
+        for(int i: result2){
             System.out.print(i+" ");
         }
     }
