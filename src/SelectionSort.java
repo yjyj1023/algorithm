@@ -9,12 +9,12 @@ public class SelectionSort {
         return arr;
     }
 
-    public int[] Ascending(int[]arr, StatementStrategy stmt){  //오름차순 정렬
+    public int[] Ascending(int[]arr){  //오름차순 정렬
         for (int i = 0; i < arr.length; i++) {
             int min = arr[i];
             int minIdx = i;
             for (int j = i; j < arr.length; j++) {
-                if(stmt.apply(arr[j],min)){
+                if(arr[j]<min){
                     min = arr[j];
                     minIdx = j;
                 }
@@ -43,7 +43,7 @@ public class SelectionSort {
         int[] arr = {2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
 
         SelectionSort s = new SelectionSort();
-        int[] result = s.Ascending(arr, (a,b) -> a<b);
+        int[] result = s.Ascending(arr);
         for(int i: result){
             System.out.print(i+" ");
         }
@@ -51,7 +51,7 @@ public class SelectionSort {
         System.out.println();
 
         int[] result2 = s.Descending(arr);
-        for(int i: result){
+        for(int i: result2){
             System.out.print(i+" ");
         }
     }
