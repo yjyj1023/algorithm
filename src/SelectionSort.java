@@ -23,6 +23,21 @@ public class SelectionSort {
         }
         return arr;
     }
+    public int[] Descending(int[]arr){  //내림차순 정렬
+        for (int i = 0; i < arr.length; i++) {
+            int max = arr[i];
+            int maxIdx = i;
+            for (int j = i; j < arr.length; j++) {
+                if(arr[j]>max){
+                    max = arr[j];
+                    maxIdx = j;
+                }
+            }
+            Swap(arr,i,maxIdx);
+        }
+        return arr;
+    }
+
 
     public static void main(String[] args) {
         int[] arr = {2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
@@ -30,7 +45,14 @@ public class SelectionSort {
         SelectionSort s = new SelectionSort();
         int[] result = s.Ascending(arr);
         for(int i: result){
-            System.out.println(i);
+            System.out.print(i+" ");
+        }
+
+        System.out.println();
+
+        int[] result2 = s.Descending(arr);
+        for(int i: result){
+            System.out.print(i+" ");
         }
     }
 }
