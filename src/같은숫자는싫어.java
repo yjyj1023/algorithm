@@ -12,13 +12,10 @@ public class 같은숫자는싫어 {
                 answerList.add(arr[i]);
             }
         }
-
         answer = new int[answerList.size()];
         for (int i = 0; i < answerList.size(); i++) {
             answer[i] = answerList.get(i);
         }
-
-
         return answer;
     }
 
@@ -28,8 +25,9 @@ public class 같은숫자는싫어 {
         int[] arr = {1,1,3,3,0,1,1};
 
         int[] result = a.solution(arr);
-        for(int i : result){
-            System.out.print(result+" ");
+
+        for(int i = 0; i<result.length; i++){
+            System.out.print(result[i]+" ");
         }
     }
 }
