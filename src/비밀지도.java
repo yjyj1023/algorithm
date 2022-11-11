@@ -60,6 +60,17 @@ public class 비밀지도 {
         return answer;
     }
 
+    String[] solution3(int n, int[] arr1, int[] arr2) {  //비트연산
+        var answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = Integer.toBinaryString(arr1[i] | arr2[i])
+                    .replace("1","#").replace("0", " ");
+            // 자릿수 맞춰주는 연산
+            answer[i] = " ".repeat(n - answer[i].length()) + answer[i];
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
