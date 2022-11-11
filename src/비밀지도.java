@@ -25,10 +25,19 @@ public class 비밀지도 {
             }
         }
 
-        System.out.println(arr1ToBinary[1]);
+        answer = new String[n];
 
-        // 바꾼값들을 비교해서 같으면 # 다르면 공백 을 문자열에 저장
-
+        // 바꾼값들을 비교해서 둘중 하나만 1이면 # 둘다 0이면 공백을 문자열에 저장
+        for (int i = 0; i < arr1ToBinary.length; i++) {
+            answer[i]="";
+            for (int j = 0; j < arr1ToBinary[i].length; j++) {
+                if(arr1ToBinary[i][j] == 1| arr2ToBinary[i][j]==1){
+                    answer[i]+="#";
+                }else{
+                    answer[i]+=" ";
+                }
+            }
+        }
 
 
         return answer;
@@ -51,6 +60,10 @@ public class 비밀지도 {
 
         비밀지도 a = new 비밀지도();
 
-        a.solution(n, arr1, arr2);
+        String[] result = a.solution(n, arr1, arr2);
+
+        for (String s: result){
+            System.out.println(s);
+        }
     }
 }
