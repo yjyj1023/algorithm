@@ -41,15 +41,6 @@ public class 비밀지도 {
         return answer;
     }
 
-    String getBinaryString(int decNum) {
-        String answer = "";
-        while (decNum > 0) {
-            answer += decNum % 2;
-            decNum /= 2;
-        }
-        return answer;
-    }
-
     String solution2(int n, int[] arr1, int[] arr2) { //개수에 맞는 이진수 배열
         String answer = "";
         String[] sArr1 = new String[n];
@@ -57,10 +48,10 @@ public class 비밀지도 {
         for (int i = 0; i < n; i++) {
             // arr1
             for (int j = 0; j < n; j++) {
-                String binStr1 = getBinaryString(arr1[i]);
-                String binStr2 = getBinaryString(arr2[i]);
+                String binStr1 = Integer.toBinaryString(arr1[i]);
+                String binStr2 = Integer.toBinaryString(arr2[i]);
                 sArr1[i] = "0".repeat(n - binStr1.length()) + binStr1;
-                sArr2[i] = "0".repeat(n - binStr2.length()) + getBinaryString(arr2[i]);
+                sArr2[i] = "0".repeat(n - binStr2.length()) + Integer.toBinaryString(arr2[i]);
             }
         }
         System.out.println(Arrays.toString(sArr1));
