@@ -50,7 +50,7 @@ public class 비밀지도 {
         return answer;
     }
 
-    String solution2(int n, int[] arr1, int[] arr2) {  //비트연산으로 풀기
+    String solution2(int n, int[] arr1, int[] arr2) { //개수에 맞는 이진수 배열
         String answer = "";
         String[] sArr1 = new String[n];
         String[] sArr2 = new String[n];
