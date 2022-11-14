@@ -3,14 +3,26 @@ public class 에라토스테네스체 {
         int n = 50;
         int[] arr = new int[n-1];
 
-        for (int i = 0; i <n-1 ; i++) {
-            arr[i] = i+2;
+        // 2 ~ 50까지 값 채우기
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = i + 2;
         }
 
-        for (int i = 0; i <n-1 ; i++) {
-            if(arr[i]%2 == 0 & arr[i] != 2){
-                arr[i] = 0;
-            };
+
+        for (int i = 0; i * i <= n ; i++) {
+            if (arr[i] != 0) {
+                for (int j = i * 2 + 2; j < arr.length; j += arr[i]) {
+                    arr[j] = 0;
+                }
+            }
         }
+
+        for(int i: arr){
+            if(i != 0){
+                System.out.println(i);
+            }
+        }
+
+
     }
 }
