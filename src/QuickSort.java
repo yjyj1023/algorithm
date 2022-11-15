@@ -11,7 +11,7 @@ public class QuickSort {
     }
 
     public List<Integer> quickSort(List<Integer> arr){
-        if(arr.size() == 0){
+        if(arr.size() <= 1){
             return arr;
         }else{
             int pivot = arr.get(arr.size()/2);
