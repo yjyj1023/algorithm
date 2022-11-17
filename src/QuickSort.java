@@ -11,14 +11,27 @@ public class QuickSort {
         int leftIdx = 0;
         int rightIdx = arr.length-1;
 
-        while(arr[leftIdx]<pivot) leftIdx += 1;
-        while(arr[rightIdx]>pivot) rightIdx -= 1;
+        while(leftIdx<=rightIdx){
+            while(arr[leftIdx]<pivot) leftIdx ++;
+            while(arr[rightIdx]>pivot) rightIdx -= 1;
+
+            arr = Swap(arr,leftIdx,rightIdx);
+            leftIdx+=1;
+            rightIdx-=1;
+
+        }
 
         return arr;
     }
     public static void main(String[] args) {
         int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
+        QuickSort qs = new QuickSort();
 
+        int[] result = qs.quickSort(arr);
+
+        for(int i: result){
+            System.out.println(i);
+        }
 
     }
 }
