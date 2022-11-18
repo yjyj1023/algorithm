@@ -23,8 +23,9 @@ public class 시저암호 {
         return answer;
     }
     public static void main(String[] args) {
-        String s = "AB";
-        int i = 1;
+        // 이 테스트 통과하면 통과됨
+        String s = "bC";
+        int i = 25;
 
         시저암호 a = new 시저암호();
         String result = a.solution(s,i);
