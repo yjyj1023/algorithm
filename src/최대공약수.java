@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class 최대공약수 {
     public int gcd(int a, int b){  //재귀 o
         if(a==b) {
@@ -24,8 +26,12 @@ public class 최대공약수 {
 
 
     public static void main(String[] args) {
-        최대공약수 a = new 최대공약수();
+        최대공약수 q = new 최대공약수();
 
-        System.out.println(a.gcd2(196, 42));
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println(q.gcd2(a,b));
     }
 }
