@@ -1,6 +1,6 @@
 public class AlphabetCombination {
     public void printAlphabet(char c){
-        if(c == (char)('Z'+1)) return;
+        if(c > 'Z') return;
         System.out.println(c);
 
         printAlphabet((char)(c+1));
