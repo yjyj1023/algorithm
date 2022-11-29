@@ -20,8 +20,9 @@ public class 기수정렬 {
         int[] result = s.sort(arr);
 
         for (int i: result){
-            System.out.print(i+" ");
+            if(i != -1){
+                System.out.print(i+" ");
+            }
         }
-
     }
 }
