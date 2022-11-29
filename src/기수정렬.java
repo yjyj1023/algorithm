@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class 기수정렬 {
     public int[] getDigits(int[] arr){
@@ -19,30 +17,39 @@ public class 기수정렬 {
         Arrays.sort(answer); //정렬
         return answer;
     }
-    public int[] sort(int[] arr){
-        int[] sortedArr = new int[10];
-
-        //-1로 초기화
-        for (int i = 0; i < sortedArr.length; i++) {
-            sortedArr[i] = -1;
+    public int[] sort(int[] arr, int digit){
+        // Queue 10개 생성
+        Queue<Integer>[] queueArr = new Queue[10];
+        for (int i = 0; i < queueArr.length; i++) {
+            queueArr[i] = new ArrayDeque<>();
         }
 
-        //sortedArr의 인덱스 = arr의 원소 값 넣기
-        for(int i: arr){
-            sortedArr[i] = i;
+        //자릿수에 맞게 queue에 넣기 1, 10, 100 ...
+        for (int i = 0; i < arr.length ; i++) {
+            int divisor = (int) Math.pow(10, digit - 1); // 10의 0제곱이므로 1의자리
+            queueArr[Math.floorDiv(arr[i], divisor) % 10].add(arr[i]);
         }
-        return sortedArr;
-    }
-    public static void main(String[] args) {
-        int[] arr = {7,4,5,9,1,0};
 
-        기수정렬 s = new 기수정렬();
-        int[] result = s.getDigits(arr);
-
-        for (int i: result){
-            if(i != -1){
-                System.out.print(i+" ");
+        // queue에서 꺼내서 arr로 만들기
+        int idx = 0;
+        for (int i = 0; i < queueArr.length; i++) { // queueArr을 반복 합니다.
+            while(!queueArr[i].isEmpty()){
+                arr[idx++] = queueArr[i].poll();
             }
         }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        기수정렬 s = new 기수정렬();
+
+        int[] arr = {7, 4, 5, 9, 1, 0, 20};
+        int[] digits = s.getDigits(arr);
+
+        for (var digit : digits) {
+            arr = s.sort(arr, digit);
+        }
+        System.out.println(Arrays.toString(arr));
+
     }
 }
