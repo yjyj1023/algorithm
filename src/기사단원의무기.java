@@ -9,11 +9,10 @@ public class 기사단원의무기 {
         for (int i = 1; i <= number; i++) {
             cnt = 0;
             for (int j = 1; j*j <= i; j++) {
-                if(i%j == 0){
+                if(j*j == i){
                     cnt++;
-                    if(j*j<i){
-                        cnt++;
-                    }
+                } else if(i%j == 0) {
+                    cnt += 2;
                 }
             }
             num[i-1] = cnt;
