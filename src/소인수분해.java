@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class 소인수분해 {
-    public boolean[] findPrimeNumber(int a) {
+    public boolean[] findPrimeNumber(int a) {  //에라토스테네스체 사용
 
         boolean[] isPrime = new boolean[a + 1];
 
@@ -20,21 +20,21 @@ public class 소인수분해 {
             }
         }
 
-        return isPrime;
+        return isPrime;  // true 인 값이 소수
     }
 
     public List<Integer> solution(int a) {
-        boolean[] isPrime = findPrimeNumber(a);
-        List<Integer> list = new ArrayList<>();
+        boolean[] isPrime = findPrimeNumber(a);  //true 인 값이 소수
+        List<Integer> list = new ArrayList<>();  //소수를 담을 list 선언
 
-        while(a != 1){
+        while(a != 1){  // a==1 이면 소인수 분해 끝
             for (int i = 2; i < isPrime.length; i++) {
-                if (isPrime[i]) {
-                    if (a % i == 0) {
+                if (isPrime[i]) {  //isPrime이 true이면
+                    if (a % i == 0) {  //나눴을때 0 이면 소인수
                         a = a / i;
-                        list.add(i);
-                        break;
-                    } else if (a == 1) {
+                        list.add(i);  //list에 소수 추가
+                        break;  // 다시 2부터 체크하기 위해 break
+                    } else if (a == 1) {  // a==1 이면 소인수 분해 끝
                         break;
                     }
                 }
