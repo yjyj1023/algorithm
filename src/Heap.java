@@ -10,13 +10,9 @@ public class Heap {
     }
     public int[] parentIndex(int a){
         int[] arr = new int[2];
-        if(a == 0){
-            arr[0] = 1;
-            arr[1] = 2;
-        }else {
-            arr[0] = a*2 + 1;
-            arr[1] = a*2 + 2;
-        }
+
+        arr[0] = a*2 + 1;
+        arr[1] = a*2 + 2;
 
         return arr;
     }
