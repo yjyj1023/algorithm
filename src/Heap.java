@@ -8,11 +8,11 @@ public class Heap {
 
         return arr;
     }
-    public int[] parentIndex(int a){
+    public int[] childrenIndex(int parentIdx){
         int[] arr = new int[2];
 
-        arr[0] = a*2 + 1;
-        arr[1] = a*2 + 2;
+        arr[0] = parentIdx*2 + 1;
+        arr[1] = parentIdx*2 + 2;
 
         return arr;
     }
