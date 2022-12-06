@@ -8,24 +8,35 @@ public class Heap {
 
         return arr;
     }
-    public int[] childrenIndex(int parentIdx){
-        int[] arr = new int[2];
+    public int[] makeHeap(int[] arr, int parentIdx){
 
-        arr[0] = parentIdx*2 + 1;
-        arr[1] = parentIdx*2 + 2;
+        int leftIdx = parentIdx*2 + 1;
+        int rightIdx = parentIdx*2 + 2;
+        int greaterIdx = parentIdx;
+
+        if(leftIdx<arr.length && arr[leftIdx] > arr[parentIdx]) {
+            greaterIdx = leftIdx;
+        }
+
+        if(rightIdx<arr.length && arr[rightIdx]> arr[greaterIdx]){
+            greaterIdx = rightIdx;
+        }
+
+        if(parentIdx != greaterIdx){
+            swap(arr, parentIdx,greaterIdx);
+            makeHeap(arr, greaterIdx);
+        }
 
         return arr;
     }
     public static void main(String[] args) {
-        int[] arr = {6,5,7,8};
-
         Heap h = new Heap();
-        h.swap(arr, 1, 3);
-        System.out.println(Arrays.toString(arr));
 
-        h.swap(arr, 0, 1);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {5, 8, 4, 7, 3, 2, 9, 6, 7};
 
+        for (int i = arr.length-2; i >=0 ; i--) {
+            arr = h.makeHeap(arr, i);
+            System.out.println(Arrays.toString(arr));
+        }
     }
-
 }
