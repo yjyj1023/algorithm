@@ -4,6 +4,6 @@ public class Lcs {
         String str1 = "ABCDCBA";
         String str2 = "DCABDC";
 
-        int[] arr = new int[str1.length() * str2.length()];
+        int[][] arr = new int[str1.length()][str2.length()];
     }
 }
