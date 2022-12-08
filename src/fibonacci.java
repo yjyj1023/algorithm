@@ -17,13 +17,29 @@ public class fibonacci {
         return memo[a];
     }
 
+    public long fibDp2(int a, long[] memo){
+        memo[1] = 1;
+        memo[2] = 1;
+
+        for (int i = 3; i < memo.length; i++) {
+            memo[i] = memo[i-1] + memo[i-2];
+        }
+
+        return memo[a];
+    }
+
     public static void main(String[] args) {
         fibonacci f = new fibonacci();
         int n = 50;
         long result = f.fibDp(n, new long[n+1]);
         System.out.println(result);
 
-        long result2 = f.fibRecursion(n);
-        System.out.println(result2);
+
+        long result3 = f.fibDp2(n, new long[n+1]);
+        System.out.println(result3);
+
+
+        //long result2 = f.fibRecursion(n);
+        //System.out.println(result2);
     }
 }
