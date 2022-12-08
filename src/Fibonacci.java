@@ -1,4 +1,4 @@
-public class fibonacci {
+public class Fibonacci {
 
     public long fibRecursion(int a){
         if(a <= 2) return 1;
@@ -29,7 +29,7 @@ public class fibonacci {
     }
 
     public static void main(String[] args) {
-        fibonacci f = new fibonacci();
+        Fibonacci f = new Fibonacci();
         int n = 50;
         long result = f.fibDp(n, new long[n+1]);
         System.out.println(result);
